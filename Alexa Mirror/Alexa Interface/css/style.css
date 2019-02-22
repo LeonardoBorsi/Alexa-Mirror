@@ -12,30 +12,68 @@ body{
 
 /* ---------- OROLOGIO ---------- */
 #date_time{
-  margin-left: -1465px ;
   margin-top: 90px;
-  text-align: center;
+  margin-left: 137px;
   font-family: Poppins;
 }
 
-#hour{
+#date{
   font-size: 90px;
-  letter-spacing: 4px;
-  width: 140px;
+  display: inline-block;
+}
+.container_hour,
+.container_minutes{
+  width: 110px;
   display: inline-block;
 }
 
-#seconds{
+.container_hour{
+  margin-right: -10px;
+}
+.container_minutes{
+  margin-left: -10px;
+}
+.devidor{
+  display: inline-block;
+  overflow: hidden;
+}
+
+.hour{
+  float:right;
+  display: inline-block;
+}
+.minutes{
+  float:left;
+  display: inline-block;
+}
+.first{
+  display: inline-block;
+
+}
+.container_seconds{
+  width: 200px;
+  height: 100%;
+  margin-bottom: 23px;
+  display: inline-block;
+
+}
+.seconds{
+  float: left;
+  font-size: 35px;
+  display: inline-block;
+}
+
+/*#seconds{
   letter-spacing: 1px;
   font-size: 35px;
   width: 190px;
   display: inline-block;
-}
+}*/
 
 #daymonth{
   font-size: 27px;
-  margin-left: 110px;
-  margin-top: -20px;
+  margin-left: 68px;
+  margin-top: -60px;
 }
 
 #year{
@@ -210,16 +248,62 @@ body{
 .weatherwidget-io{
   width: 200px;
   font-family: Poppins;
-  margin-top: 150px;
-  margin-left: 175px;
+  position: absolute;
+  bottom: 40px;
+  left: 167px;
 }
 
+#met_letter{
+  font-family: Poppins;
+  margin-top: 200px;
+}
+
+#city{
+  position: absolute;
+  font-size: 24px;
+  left: 244px;
+  top: 375px;
+}
+
+#day1{
+  position: absolute;
+  left: 137px;
+  top: 617px;
+}
+
+#day2{
+  position: absolute;
+  left: 137px;
+  top: 672px;
+}
+
+#day3{
+  position: absolute;
+  left: 137px;
+  top: 724px;
+}
 /* ---------- MUSIC PLAYER ---------- */
 
+#audio-strings{
+  font-family: Poppins;
+  font-size: 19px;
+  position: absolute;
+  bottom:100px;
+  left:125px;
+}
+
+#audio-logo{
+  position: absolute;
+  width:22px;
+  bottom:105px;
+  left:95px;
+}
+
 .audio.green-audio-player {
-    margin-left: 50px;
+    position: absolute;
+    top:1000px;
+    left: 50px;
     width: 1750px;
-    margin-top:260px;
     min-width: 300px;
     height: 56px;
     display: flex;
@@ -351,3 +435,6 @@ body{
     }
   }
   
+  .locationName{
+    font-family: Poppins!important;
+  }
