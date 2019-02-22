@@ -71,6 +71,7 @@ function showCalendar(month, year) {
                 cell.appendChild(cellText);
                 row.appendChild(cell);
                 date++;
+                
             }
 
 

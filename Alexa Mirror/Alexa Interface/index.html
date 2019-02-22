@@ -11,12 +11,35 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-
         <!--OROLOGIO-->  
 
         <div id="date_time">
 
-            <div id="hour">
+            <div id="date">
+              <div class="first">
+                  <div class="container_hour">
+                    <div class="hour">
+
+                    </div>
+                  </div>
+                  <div class="devidor">
+                      :
+                  </div>
+                  <div class="container_minutes">
+                    <div class="minutes">
+
+                    </div>
+                  </div>
+              </div>
+
+              <!--
+              <div class="container_seconds">
+                  <div class="seconds">
+                    
+                  </div>
+              </div>
+            -->
+              
             </div>
             
             <!--
@@ -29,12 +52,20 @@
 
         </div>
 
-        <!--METEO-->  
+        <script src="functions.js" ></script> 
 
-        <a class="weatherwidget-io" href="https://forecast7.com/it/43d8811d10/prato/" data-font='Droid Sans' data-label_1="Prato" data-days="3" data-theme="dark" data-accent="" data-textcolor="white" data-highcolor="white" data-lowcolor="white" data-suncolor="white" data-mooncolor="white" data-cloudcolor="white" data-cloudfill="black" data-raincolor="white" data-snowcolor="white" >Prato</a>
+        <!--METEO-->  
+        <div id="met_letter">            
+          <div id="city">Prato</div>
+          <div id="day1"></div>
+          <div id="day2"></div>
+          <div id="day3"></div>
+        </div>
+        <a class="weatherwidget-io" href="https://forecast7.com/it/43d8811d10/prato/" data-font='Droid Sans' data-label_1="Prato" data-days="3" data-theme="dark" data-accent="" data-textcolor="black" data-highcolor="white" data-lowcolor="white" data-suncolor="white" data-mooncolor="white" data-cloudcolor="white" data-cloudfill="black" data-raincolor="white" data-snowcolor="white" >Prato</a>
         <script>
         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='meteo.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
         </script> 
+        <script src="meteodays.js"></script>        
 
         <!--CALENDARIO V2-->  
         
@@ -85,52 +116,72 @@
         <script src="cal.js"></script>
 
         
-        <!--MUSIC PLAYER-->        
 
-        <div class="audio green-audio-player">
-            <div class="loading">
-              <div class="spinner"></div>
-            </div>
-            <div class="play-pause-btn">  
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="24" viewBox="0 0 18 24">
-                <path fill="#FFFFFF" fill-rule="evenodd" d="M18 12L0 24V0" class="play-pause-icon" id="playPause"/>
-              </svg>
-            </div>
-            
-            <div class="controls">
-              <span class="current-time">0:00</span>
-              <div class="slider" data-direction="horizontal">
-                <div class="progress">
-                  <div class="pin" id="progress-pin" data-method="rewind"></div>
-                </div>
+        <!--SPOTIFY PLAYER--> 
+        <!--https://developer.spotify.com/dashboard/applications/93be865de77f459ea58ab739334851b5-->   
+        <script src="https://sdk.scdn.co/spotify-player.js"></script>
+        <script>
+        window.onSpotifyWebPlaybackSDKReady = () => {
+          const userAccessToken = "[access token]";
+          const webPlayback = new Spotify.Player({
+            name: "Spotify Web Playback SDK",
+            getOAuthToken: callback => { callback(token)}
+          });
+          webPlayback.connect();
+        };
+        </script>
+
+        <!--MUSIC PLAYER-->    
+        
+        <div id="music-player">
+          <img id="audio-logo" src="css/Images/Music.png">
+          <div id="audio-strings">              
+            <a id="audio-title">Welcome to the Jungle</a>
+            <a>-</a>
+            <a id="audio-artist">Guns N'Roses</a>
+            <a id="audio-album"></a>
+          </div>
+
+          <div class="audio green-audio-player">
+              <div class="loading">
+                <div class="spinner"></div>
               </div>
-              <span class="total-time">0:00</span>
-            </div>
-            
-            <div class="volume">
-              <div class="volume-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                  <path fill="white" fill-rule="evenodd" d="M14.667 0v2.747c3.853 1.146 6.666 4.72 6.666 8.946 0 4.227-2.813 7.787-6.666 8.934v2.76C20 22.173 24 17.4 24 11.693 24 5.987 20 1.213 14.667 0zM18 11.693c0-2.36-1.333-4.386-3.333-5.373v10.707c2-.947 3.333-2.987 3.333-5.334zm-18-4v8h5.333L12 22.36V1.027L5.333 7.693H0z" id="speaker"/>
+              <div class="play-pause-btn">  
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="24" viewBox="0 0 18 24">
+                  <path fill="#FFFFFF" fill-rule="evenodd" d="M18 12L0 24V0" class="play-pause-icon" id="playPause"/>
                 </svg>
               </div>
-              <div class="volume-controls hidden">
-                <div class="slider" data-direction="vertical">
+              
+              <div class="controls">
+                <span class="current-time">0:00</span>
+                <div class="slider" data-direction="horizontal">
                   <div class="progress">
-                    <div class="pin" id="volume-pin" data-method="changeVolume"></div>
+                    <div class="pin" id="progress-pin" data-method="rewind"></div>
+                  </div>
+                </div>
+                <span class="total-time">0:00</span>
+              </div>
+              
+              <div class="volume">
+                <div class="volume-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="white" fill-rule="evenodd" d="M14.667 0v2.747c3.853 1.146 6.666 4.72 6.666 8.946 0 4.227-2.813 7.787-6.666 8.934v2.76C20 22.173 24 17.4 24 11.693 24 5.987 20 1.213 14.667 0zM18 11.693c0-2.36-1.333-4.386-3.333-5.373v10.707c2-.947 3.333-2.987 3.333-5.334zm-18-4v8h5.333L12 22.36V1.027L5.333 7.693H0z" id="speaker"/>
+                  </svg>
+                </div>
+                <div class="volume-controls hidden">
+                  <div class="slider" data-direction="vertical">
+                    <div class="progress">
+                      <div class="pin" id="volume-pin" data-method="changeVolume"></div>
+                    </div>
                   </div>
                 </div>
               </div>
+              
+              <audio>
+                <source src="music/Guns.mp3" type="audio/mpeg">
+              </audio>
             </div>
-            
-            <audio>
-              <source src="music/Guns.mp3" type="audio/mpeg">
-            </audio>
           </div>
-
-
-
-        <script src="audio.js" ></script>
-        <script src="functions.js" ></script>        
-        
+        <script src="audio.js" ></script>     
     </body>
 </html>

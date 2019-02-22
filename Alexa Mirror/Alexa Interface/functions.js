@@ -22,22 +22,26 @@ function hour(id)
         {
                 h = "0"+h;
         }
+
+        result =h;
+        document.getElementsByClassName(id)[0].innerHTML = result;
+        setTimeout('hour("'+id+'");','1000');
+        return true;
+}
+function minutes(id)
+{
+        date = new Date;
         m = date.getMinutes();
         if(m<10)
         {
                 m = "0"+m;
         }
-        /*s = date.getSeconds();
-        if(s<10)
-        {
-                s = "0"+s;
-        }*/
-        result =h+':'+m;
-        document.getElementById(id).innerHTML = result;
-        setTimeout('hour("'+id+'");','1000');
+
+        result = m;
+        document.getElementsByClassName(id)[0].innerHTML = result;
+        setTimeout('minutes("'+id+'");','1000');
         return true;
 }
-/*
 function seconds(id)
 {
         date = new Date;
@@ -48,11 +52,11 @@ function seconds(id)
                 s = "0"+s;
         }
         result =s;
-        document.getElementById(id).innerHTML = result;
+        document.getElementsByClassName(id)[0].innerHTML = result;
         setTimeout('seconds("'+id+'");','1000');
         return true;
 }
-*/
+
 function year(id)
 {
         date = new Date;
@@ -65,6 +69,6 @@ function year(id)
 }
 
 hour('hour');
+minutes('minutes');
 //seconds('seconds');
 daymonth('daymonth');
-year('year');
