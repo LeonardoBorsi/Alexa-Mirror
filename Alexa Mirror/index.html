@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Alexa Mirror Interface">
+    <meta name="author" content="Leonardo Borsi, Roberto Enasoaie, Alessandro Quadrini, Alessio Bavetta">
+    <link rel="icon" href="css/Images/Logo.png" type="image/x-icon" />
+    <title>Alexa Mirror</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!--OROLOGIO-->
+    <div id="date_time">
+
+        <div id="date">
+            <div class="first">
+                <div class="container_hour">
+                    <div class="hour">
+
+                    </div>
+                </div>
+                <div class="devidor">
+                    :
+                </div>
+                <div class="container_minutes">
+                    <div class="minutes">
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="daymonth">
+            </div>
+
+        </div>
+        <script src="js/clock.js"></script>
+
+        <!--METEO-->
+        <div id="met_letter">
+            <div id="city">Prato</div>
+            <div id="day1"></div>
+            <div id="day2"></div>
+            <div id="day3"></div>
+        </div>
+        <a class="weatherwidget-io" href="https://forecast7.com/it/43d8811d10/prato/" data-font='Droid Sans'
+            data-label_1="Prato" data-days="3" data-theme="dark" data-accent="" data-textcolor="black"
+            data-highcolor="white" data-lowcolor="white" data-suncolor="white" data-mooncolor="white"
+            data-cloudcolor="white" data-cloudfill="black" data-raincolor="white" data-snowcolor="white">Prato</a>
+
+
+        <!--CALENDARIO V2-->
+        <div class="container col-sm-4 col-md-7 col-lg-4 mt-5">
+            <div class="calendar2">
+                <div class="topcal">
+
+                    <button class="previouscal" id="previouscal" onclick="previous()"></button>
+                    <div class="headercal" id="monthAndYear"></div>
+                    <button class="nextcal" id="nextcal" onclick="next()"></button>
+
+                </div>
+
+                <table class="bodycal" id="calendar">
+                    <thead>
+                        <tr>
+                            <td>Sun</td>
+                            <td>Mon</td>
+                            <td>Tue</td>
+                            <td>Wed</td>
+                            <td>Thu</td>
+                            <td>Fri</td>
+                            <td>Sat</td>
+                        </tr>
+                    </thead>
+
+                    <tbody id="calendar-body">
+
+                    </tbody>
+                </table>
+                <br />
+
+                <form class="form-inline">
+                    <label hidden class="lead mr-2 ml-2" for="month">Jump To: </label>
+                    <select hidden class="form-control col-sm-4" name="month" id="month" onchange="jump()">
+                        <option value=0>Jan</option>
+                    </select>
+                    <label hidden for="year"></label><select hidden class="form-control col-sm-4" name="year" id="year"
+                        onchange="jump()">
+                        <option value=1990>1990</option>
+                    </select></form>
+
+            </div>
+        </div>
+        <script src="js/cal.js"></script>
+
+        <!--SPOTIFY PLAYER-->
+        <!--https://developer.spotify.com/dashboard/applications/93be865de77f459ea58ab739334851b5-->
+
+
+        <!--MUSIC PLAYER-->
+        <div id="music-player">
+            <img id="audio-logo" src="css/Images/Music.png">
+            <div id="audio-strings">
+                <a id="audio-title"></a>
+            </div>
+        </div>
+        <audio class="audio" preload="metadata" src="" type="audio/mpeg"></audio>
+
+    </div>
+    <script src="js/main.js"></script>
+    <script>
+        ! function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'js/meteo.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, 'script', 'weatherwidget-io-js');
+    </script>
+    <script src="js/meteodays.js"></script>
+</body>
+
+</html>
